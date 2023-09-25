@@ -1,6 +1,6 @@
 import { DefaultTheme } from 'styled-components';
 
-const theme: DefaultTheme = {
+export const theme: DefaultTheme = {
     colors: {
         bluish: '#0056F5',
         oranger: '#EAB64D',
@@ -28,11 +28,24 @@ export const size: VieportSize = {
     xxl: 1536,
 };
 
-export const device: Record<keyof VieportSize, string> = {
-    xs: `(min-width: ${size.xs}px)`,
-    sm: `(min-width: ${size.sm}px)`,
-    md: `(min-width: ${size.md}px)`,
-    lg: `(min-width: ${size.lg}px)`,
-    xl: `(min-width: ${size.xl}px)`,
-    xxl: `(min-width: ${size.xxl}px)`,
+export const viewport: Record<
+    'media' | 'size',
+    Record<keyof VieportSize, string>
+> = {
+    media: {
+        xs: `@media (min-width: ${size.xs}px)`,
+        sm: `@media (min-width: ${size.sm}px)`,
+        md: `@media (min-width: ${size.md}px)`,
+        lg: `@media (min-width: ${size.lg}px)`,
+        xl: `@media (min-width: ${size.xl}px)`,
+        xxl: `@media (min-width: ${size.xxl}px)`,
+    },
+    size: {
+        xs: `${size.xs}px`,
+        sm: `${size.sm}px`,
+        md: `${size.md}px`,
+        lg: `${size.lg}px`,
+        xl: `${size.xl}px`,
+        xxl: `${size.xxl}px`,
+    },
 };
