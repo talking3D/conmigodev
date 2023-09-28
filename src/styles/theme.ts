@@ -12,6 +12,7 @@ export const theme: DefaultTheme = {
 
 type VieportSize = {
     xs: number;
+    xr: number;
     sm: number;
     md: number;
     lg: number;
@@ -21,6 +22,7 @@ type VieportSize = {
 
 export const size: VieportSize = {
     xs: 375,
+    xr: 414,
     sm: 640,
     md: 768,
     lg: 1024,
@@ -34,6 +36,7 @@ export const viewport: Record<
 > = {
     media: {
         xs: `@media (min-width: ${size.xs}px)`,
+        xr: `@media (min-width: ${size.xr}px)`,
         sm: `@media (min-width: ${size.sm}px)`,
         md: `@media (min-width: ${size.md}px)`,
         lg: `@media (min-width: ${size.lg}px)`,
@@ -42,6 +45,7 @@ export const viewport: Record<
     },
     size: {
         xs: `${size.xs}px`,
+        xr: `${size.xr}px`,
         sm: `${size.sm}px`,
         md: `${size.md}px`,
         lg: `${size.lg}px`,
