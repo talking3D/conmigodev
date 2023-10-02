@@ -40,3 +40,8 @@ export const LogoWrapperStyled = styled.div`
         margin-left: 2rem;
     }
 `;
+
+export const AboutMeSectionStyled = styled.div`
+    max-width: ${viewport.size.xxl};
+    margin: 0 auto;
+`;
