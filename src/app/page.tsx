@@ -4,31 +4,38 @@ import {
     TopSectionContentStyled,
     TopSectionHeaderStyled,
     LogoWrapperStyled,
+    AboutMeSectionStyled,
 } from './page.styles';
-import { AuthorInfo } from '@/components';
 
+import { AuthorInfo } from '@/components';
 import { Navbar } from '@/components';
+import { AboutMeView } from './views';
 import logo from 'public/conmigo-logo.svg';
 
 export default function Home() {
     return (
-        <TopSectionStyled>
-            <TopSectionContentStyled>
-                <TopSectionHeaderStyled>
-                    <LogoWrapperStyled>
-                        <Image
-                            src={logo}
-                            style={{
-                                width: '100%',
-                                height: 'auto',
-                            }}
-                            alt="Conmigo logo"
-                        />
-                    </LogoWrapperStyled>
-                    <Navbar />
-                </TopSectionHeaderStyled>
-                <AuthorInfo />
-            </TopSectionContentStyled>
-        </TopSectionStyled>
+        <>
+            <TopSectionStyled>
+                <TopSectionContentStyled>
+                    <TopSectionHeaderStyled>
+                        <LogoWrapperStyled>
+                            <Image
+                                src={logo}
+                                style={{
+                                    width: '100%',
+                                    height: 'auto',
+                                }}
+                                alt="Conmigo logo"
+                            />
+                        </LogoWrapperStyled>
+                        <Navbar />
+                    </TopSectionHeaderStyled>
+                    <AuthorInfo />
+                </TopSectionContentStyled>
+            </TopSectionStyled>
+            <AboutMeSectionStyled>
+                <AboutMeView />
+            </AboutMeSectionStyled>
+        </>
     );
 }
