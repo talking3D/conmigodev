@@ -50,7 +50,7 @@ export const DataAnalystSectionStyled = styled.div`
 `;
 
 export const DataScientistSectionStyled = styled.div`
-    display: grid;
+    position: relative;
     width: 100%;
     height: 0;
     margin-top: 16%;
@@ -58,6 +58,7 @@ export const DataScientistSectionStyled = styled.div`
 `;
 
 export const SoftwareDeveloperSectionStyled = styled.div`
+    position: relative;
     display: grid;
     width: 100%;
     height: 0;

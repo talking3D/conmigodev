@@ -17,6 +17,11 @@ import longStoryShortImage from 'public/long-story-short.svg';
 import excelIcon from 'public/icons/excel-icon.svg';
 import accessIcon from 'public/icons/access-icon.svg';
 import ppIcon from 'public/icons/pp-icon.svg';
+import numpyIcon from 'public/icons/numpy-icon.svg';
+import postgresqlIcon from 'public/icons/postgresql-icon.svg';
+import pythonIcon from 'public/icons/python-icon.svg';
+import pandasIcon from 'public/icons/pandas-icon.svg';
+import jupyterIcon from 'public/icons/jupyter-icon.svg';
 
 export const LongStoryShortView: React.FC = () => {
     return (
@@ -66,7 +71,64 @@ export const LongStoryShortView: React.FC = () => {
                         }}
                     />
                 </DataAnalystSectionStyled>
-                <DataScientistSectionStyled></DataScientistSectionStyled>
+                <DataScientistSectionStyled>
+                    <Icon
+                        title="Numpy"
+                        src={numpyIcon}
+                        $position="top"
+                        $alignment="center"
+                        $style={{
+                            position: 'absolute',
+                            top: '5%',
+                            right: '25%',
+                        }}
+                    />
+                    <Icon
+                        title="PostgreSQL"
+                        src={postgresqlIcon}
+                        $position="top"
+                        $alignment="center"
+                        $style={{
+                            position: 'absolute',
+                            top: '12%',
+                            left: '21%',
+                        }}
+                    />
+                    <Icon
+                        title="Python"
+                        src={pythonIcon}
+                        $position="top"
+                        $alignment="center"
+                        $style={{
+                            position: 'absolute',
+                            top: '35%',
+                            left: '10%',
+                        }}
+                    />
+                    <Icon
+                        title="Jupyter"
+                        src={jupyterIcon}
+                        verbose={false}
+                        $position="right"
+                        $alignment="center"
+                        $style={{
+                            position: 'absolute',
+                            top: '50%',
+                            right: '24%',
+                        }}
+                    />
+                    <Icon
+                        title="Pandas"
+                        src={pandasIcon}
+                        $position="left"
+                        $alignment="center"
+                        $style={{
+                            position: 'absolute',
+                            top: '65%',
+                            left: '28%',
+                        }}
+                    />
+                </DataScientistSectionStyled>
                 <SoftwareDeveloperSectionStyled></SoftwareDeveloperSectionStyled>
             </StoryMainContentWrapperStyled>
         </LongStoryShortSectionContainerStyled>
