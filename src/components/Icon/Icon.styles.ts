@@ -6,6 +6,7 @@ import { CSSProperties } from 'react';
 export interface IconStyledProps {
     $position?: 'left' | 'right' | 'top' | 'bottom';
     $alignment?: 'left' | 'right' | 'center';
+    $labelOrange?: boolean;
     $style?: CSSProperties;
 }
 
@@ -62,12 +63,13 @@ export const IconTextStyled = styled.div<IconStyledProps>`
         $position === 'top' || $position === 'left' ? -1 : 'initial'};
     font-weight: 500;
     font-size: 0.75rem;
-    color: ${theme.colors.bluish};
+    color: ${({ $labelOrange }) =>
+        $labelOrange ? `${theme.colors.orangeText}` : `${theme.colors.bluish}`};
     align-self: start;
     margin-top: ${(props) =>
         props.$position !== 'top' && props.$position !== 'bottom'
             ? props.$alignment === 'center'
-                ? '9%'
+                ? '19%'
                 : '0'
             : '0'};
     ${viewport.media.xs} {

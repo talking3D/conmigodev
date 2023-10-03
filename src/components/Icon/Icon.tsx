@@ -19,7 +19,15 @@ type IconProps = IconStyledProps & {
 };
 
 export const Icon: React.FC<IconProps> = (props) => {
-    const { title, src, verbose = true, $position, $alignment, $style } = props;
+    const {
+        title,
+        src,
+        verbose = true,
+        $position,
+        $alignment,
+        $style,
+        $labelOrange,
+    } = props;
     return (
         <IconContainerStyled
             $position={$position}
@@ -31,7 +39,11 @@ export const Icon: React.FC<IconProps> = (props) => {
                 <IconShadowImageStyled src={iconShadow} alt="icon shadow" />
             </IconImagesWrapperStyled>
             {verbose ? (
-                <IconTextStyled $position={$position} $alignment={$alignment}>
+                <IconTextStyled
+                    $position={$position}
+                    $alignment={$alignment}
+                    $labelOrange={$labelOrange}
+                >
                     {title}
                 </IconTextStyled>
             ) : null}
