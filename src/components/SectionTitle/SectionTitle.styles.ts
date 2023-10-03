@@ -38,7 +38,6 @@ export const SectionTitleTextStyled = styled.h2<SectionTitleStyledProps>`
               )
             : null}
 `;
-
 // Refactor this if possible. To much code duplication.
 export const SectionTitleEllipseStyled = styled(Image)<SectionTitleStyledProps>`
     position: absolute;
@@ -51,46 +50,60 @@ export const SectionTitleEllipseStyled = styled(Image)<SectionTitleStyledProps>`
             : null}
     ${viewport.media.xs} {
         ${(props) =>
-            props.$responsiveEllipse?.includes('xs')
-                ? `right: 0; left: auto; transform: rotate(136deg);`
-                : `left: 0; right: auto; transform: rotate(0deg);`}
+            props.$responsiveEllipse
+                ? props.$responsiveEllipse?.includes('xs')
+                    ? `right: 0; left: auto; transform: rotate(136deg);`
+                    : `left: 0; right: auto; transform: rotate(0deg);`
+                : null}
     }
     ${viewport.media.xr} {
         ${(props) =>
-            props.$responsiveEllipse?.includes('xr')
-                ? `right: 0; left: auto; transform: rotate(136deg);`
-                : `left: 0; right: auto; transform: rotate(0deg);`}
+            props.$responsiveEllipse
+                ? props.$responsiveEllipse?.includes('xr')
+                    ? `right: 0; left: auto; transform: rotate(136deg);`
+                    : `left: 0; right: auto; transform: rotate(0deg);`
+                : null}
     }
     ${viewport.media.sm} {
         ${(props) =>
-            props.$responsiveEllipse?.includes('sm')
-                ? `right: 0; left: auto; transform: rotate(136deg);`
-                : `left: 0; right: auto; transform: rotate(0deg);`}
+            props.$responsiveEllipse
+                ? props.$responsiveEllipse?.includes('sm')
+                    ? `right: 0; left: auto; transform: rotate(136deg);`
+                    : `left: 0; right: auto; transform: rotate(0deg);`
+                : null}
         max-width: 100px;
     }
     ${viewport.media.md} {
         ${(props) =>
-            props.$responsiveEllipse?.includes('md')
-                ? `right: 0; left: auto; transform: rotate(136deg);`
-                : `left: 0; right: auto; transform: rotate(0deg);`}
+            props.$responsiveEllipse
+                ? props.$responsiveEllipse?.includes('md')
+                    ? `right: 0; left: auto; transform: rotate(136deg);`
+                    : `left: 0; right: auto; transform: rotate(0deg);`
+                : null}
     }
     ${viewport.media.lg} {
         ${(props) =>
-            props.$responsiveEllipse?.includes('lg')
-                ? `right: 0; left: auto; transform: rotate(136deg);`
-                : `left: 0; right: auto; transform: rotate(0deg);`}
+            props.$responsiveEllipse
+                ? props.$responsiveEllipse?.includes('lg')
+                    ? `right: 0; left: auto; transform: rotate(136deg);`
+                    : `left: 0; right: auto; transform: rotate(0deg);`
+                : null}
         max-width: 140px;
     }
     ${viewport.media.xl} {
         ${(props) =>
-            props.$responsiveEllipse?.includes('xl')
-                ? `right: 0; left: auto; transform: rotate(136deg);`
-                : `left: 0; right: auto; transform: rotate(0deg);`}
+            props.$responsiveEllipse
+                ? props.$responsiveEllipse?.includes('xl')
+                    ? `right: 0; left: auto; transform: rotate(136deg);`
+                    : `left: 0; right: auto; transform: rotate(0deg);`
+                : null}
     }
     ${viewport.media.xxl} {
         ${(props) =>
-            props.$responsiveEllipse?.includes('xxl')
-                ? `right: 0; transform: rotate(136deg);`
-                : `left: 0; right: auto; transform: rotate(0deg);`}
+            props.$responsiveEllipse
+                ? props.$responsiveEllipse?.includes('xxl')
+                    ? `right: 0; left: auto; transform: rotate(136deg);`
+                    : `left: 0; right: auto; transform: rotate(0deg);`
+                : null}
     }
 `;
