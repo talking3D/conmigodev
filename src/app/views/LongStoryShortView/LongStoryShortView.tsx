@@ -22,6 +22,13 @@ import postgresqlIcon from 'public/icons/postgresql-icon.svg';
 import pythonIcon from 'public/icons/python-icon.svg';
 import pandasIcon from 'public/icons/pandas-icon.svg';
 import jupyterIcon from 'public/icons/jupyter-icon.svg';
+import jsIcon from 'public/icons/js-icon.svg';
+import tsIcon from 'public/icons/ts-icon.svg';
+import reactIcon from 'public/icons/react-icon.svg';
+import nodeIcon from 'public/icons/node-icon.svg';
+import nextIcon from 'public/icons/next-icon.svg';
+import djangoIcon from 'public/icons/django-icon.svg';
+import jestIcon from 'public/icons/jest-icon.svg';
 
 export const LongStoryShortView: React.FC = () => {
     return (
@@ -129,7 +136,94 @@ export const LongStoryShortView: React.FC = () => {
                         }}
                     />
                 </DataScientistSectionStyled>
-                <SoftwareDeveloperSectionStyled></SoftwareDeveloperSectionStyled>
+                <SoftwareDeveloperSectionStyled>
+                    <Icon
+                        title="JavaScript"
+                        src={jsIcon}
+                        $position="left"
+                        $alignment="center"
+                        $labelOrange
+                        $style={{
+                            position: 'absolute',
+                            top: '5%',
+                            left: '10%',
+                        }}
+                    />
+                    <Icon
+                        title="TypeScript"
+                        src={tsIcon}
+                        $position="right"
+                        $alignment="center"
+                        $labelOrange
+                        $style={{
+                            position: 'absolute',
+                            top: '10%',
+                            right: '10%',
+                        }}
+                    />
+                    <Icon
+                        title="React"
+                        src={reactIcon}
+                        $position="right"
+                        $alignment="center"
+                        $labelOrange
+                        $style={{
+                            position: 'absolute',
+                            top: '30%',
+                            left: '10%',
+                        }}
+                    />
+                    <Icon
+                        title="Django"
+                        src={djangoIcon}
+                        $position="left"
+                        $alignment="center"
+                        $labelOrange
+                        $style={{
+                            position: 'absolute',
+                            top: '35%',
+                            right: '10%',
+                        }}
+                    />
+                    <Icon
+                        title="Jest"
+                        src={jestIcon}
+                        $position="right"
+                        $alignment="center"
+                        $labelOrange
+                        $style={{
+                            position: 'absolute',
+                            top: '55%',
+                            left: '30%',
+                        }}
+                    />
+                    <Icon
+                        title="Nextjs"
+                        src={nextIcon}
+                        $position="right"
+                        $alignment="center"
+                        $labelOrange
+                        verbose={false}
+                        $style={{
+                            position: 'absolute',
+                            top: '60%',
+                            left: '15%',
+                        }}
+                    />
+                    <Icon
+                        title="Nodejs"
+                        src={nodeIcon}
+                        $position="right"
+                        $alignment="center"
+                        $labelOrange
+                        verbose={false}
+                        $style={{
+                            position: 'absolute',
+                            top: '55%',
+                            right: '35%',
+                        }}
+                    />
+                </SoftwareDeveloperSectionStyled>
             </StoryMainContentWrapperStyled>
         </LongStoryShortSectionContainerStyled>
     );
