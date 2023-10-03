@@ -14,7 +14,7 @@ export const IconContainerStyled = styled.div<IconStyledProps>`
     flex-direction: ${({ $position }) =>
         $position === 'left' || $position === 'right' ? 'row' : 'column'};
     column-gap: 0.5rem;
-    justify-content: center;
+    align-items: center;
     max-width: max-content;
     row-gap: 0.1rem;
     ${({ $style }) => ($style !== undefined ? { ...$style } : null)}
@@ -23,7 +23,6 @@ export const IconContainerStyled = styled.div<IconStyledProps>`
 export const IconImagesWrapperStyled = styled.div`
     display: flex;
     flex-direction: column;
-    align-items: center;
     justify-content: center;
     max-width: 30px;
     ${viewport.media.xs} {
@@ -59,11 +58,12 @@ export const IconShadowImageStyled = styled(Image)`
 `;
 
 export const IconTextStyled = styled.div<IconStyledProps>`
-    order: ${({ $position }) => ($position === 'top' ? -1 : 'initial')};
+    order: ${({ $position }) =>
+        $position === 'top' || $position === 'left' ? -1 : 'initial'};
     font-weight: 500;
     font-size: 0.75rem;
-    text-align: center;
     color: ${theme.colors.bluish};
+    align-self: start;
     margin-top: ${(props) =>
         props.$position !== 'top' && props.$position !== 'bottom'
             ? props.$alignment === 'center'

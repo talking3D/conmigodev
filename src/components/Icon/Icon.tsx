@@ -12,10 +12,14 @@ import {
 
 import iconShadow from 'public/icons/shadow.png';
 
-type IconProps = IconStyledProps & { title: string; src: string };
+type IconProps = IconStyledProps & {
+    title: string;
+    src: string;
+    verbose?: boolean;
+};
 
 export const Icon: React.FC<IconProps> = (props) => {
-    const { title, src, $position, $alignment, $style } = props;
+    const { title, src, verbose = true, $position, $alignment, $style } = props;
     return (
         <IconContainerStyled
             $position={$position}
@@ -26,9 +30,11 @@ export const Icon: React.FC<IconProps> = (props) => {
                 <IconImageStyled src={src} alt={`${title} icon`} />
                 <IconShadowImageStyled src={iconShadow} alt="icon shadow" />
             </IconImagesWrapperStyled>
-            <IconTextStyled $position={$position} $alignment={$alignment}>
-                {title}
-            </IconTextStyled>
+            {verbose ? (
+                <IconTextStyled $position={$position} $alignment={$alignment}>
+                    {title}
+                </IconTextStyled>
+            ) : null}
         </IconContainerStyled>
     );
 };
