@@ -42,6 +42,7 @@ export const HeaderParagraphStyled = styled.h2<HeaderParagraphStyledProps>`
     text-underline-offset: 0.25rem;
     position: relative;
     min-width: 50%;
+    order: -1;
 
     ${viewport.media.sm} {
         font-size: 1.75rem;
