@@ -90,7 +90,7 @@
             "  ${2:...}",
             "}",
             "",
-            "export const ${TM_FILENAME_BASE}: React.FC = (${3:props}) => {",
+            "export const ${TM_FILENAME_BASE}: React.FC<${TM_FILENAME_BASE}Props> = (${3:props}) => {",
             "  const ${4:{}} = props",
             "  return <>${5}</>",
             "}",
