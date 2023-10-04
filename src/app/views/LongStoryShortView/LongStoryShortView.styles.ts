@@ -38,6 +38,7 @@ export const StoryMainContentWrapperStyled = styled.div`
     display: flex;
     flex-direction: column;
     align-items: center;
+    margin-top: 2rem;
 `;
 
 export const DataAnalystSectionStyled = styled.div`
@@ -64,4 +65,13 @@ export const SoftwareDeveloperSectionStyled = styled.div`
     height: 0;
     margin-top: 16%;
     padding-bottom: 52%;
+`;
+
+export const TimeLineWrapperStyled = styled.div`
+    position: absolute;
+    right: -0.75rem;
+    height: 100%;
+    ${viewport.media.xs} {
+        right: -1rem;
+    }
 `;

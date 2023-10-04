@@ -10,8 +10,9 @@ import {
     DataAnalystSectionStyled,
     DataScientistSectionStyled,
     SoftwareDeveloperSectionStyled,
+    TimeLineWrapperStyled,
 } from './LongStoryShortView.styles';
-import { SectionTitle, Icon } from '@/components';
+import { SectionTitle, Icon, TimeLine } from '@/components';
 
 import longStoryShortImage from 'public/long-story-short.svg';
 import excelIcon from 'public/icons/excel-icon.svg';
@@ -37,6 +38,9 @@ export const LongStoryShortView: React.FC = () => {
                 <SectionTitle title="Long story short" end />
             </StoryTitleStyled>
             <StoryMainContentWrapperStyled>
+                <TimeLineWrapperStyled>
+                    <TimeLine />
+                </TimeLineWrapperStyled>
                 <StoryMainImageWrapperStyled>
                     <LongStoryShortSectionMainImageStyled
                         src={longStoryShortImage}
