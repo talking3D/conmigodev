@@ -5,11 +5,12 @@ import {
     TopSectionHeaderStyled,
     LogoWrapperStyled,
     AboutMeSectionStyled,
+    LongStoryShortSectionStyled,
 } from './page.styles';
 
 import { AuthorInfo } from '@/components';
 import { Navbar } from '@/components';
-import { AboutMeView } from './views';
+import { AboutMeView, LongStoryShortView } from './views';
 import logo from 'public/conmigo-logo.svg';
 
 export default function Home() {
@@ -36,6 +37,9 @@ export default function Home() {
             <AboutMeSectionStyled>
                 <AboutMeView />
             </AboutMeSectionStyled>
+            <LongStoryShortSectionStyled>
+                <LongStoryShortView />
+            </LongStoryShortSectionStyled>
         </>
     );
 }

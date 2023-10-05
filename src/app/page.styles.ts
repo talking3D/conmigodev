@@ -41,6 +41,11 @@ export const LogoWrapperStyled = styled.div`
     }
 `;
 
+export const LongStoryShortSectionStyled = styled.div`
+    max-width: ${viewport.size.xxl};
+    margin: 0 auto;
+`;
+
 export const AboutMeSectionStyled = styled.div`
     max-width: ${viewport.size.xxl};
     margin: 0 auto;

@@ -7,6 +7,7 @@ export const theme: DefaultTheme = {
         yellowish: '#FFF8E9',
         white: '#FFFFFF',
         black: '#000000',
+        orangeText: '#F37726',
     },
 };
 
