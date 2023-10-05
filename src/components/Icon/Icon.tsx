@@ -19,34 +19,18 @@ type IconProps = IconStyledProps & {
 };
 
 export const Icon: React.FC<IconProps> = (props) => {
-    const {
-        title,
-        src,
-        verbose = true,
-        $position,
-        $alignment,
-        $style,
-        $labelOrange,
-    } = props;
+    const { title, src, verbose = true, $style, $labelOrange } = props;
     return (
-        <IconContainerStyled
-            $position={$position}
-            $alignment={$alignment}
-            $style={$style}
-        >
+        <IconContainerStyled $style={$style}>
+            {verbose ? (
+                <IconTextStyled $labelOrange={$labelOrange}>
+                    {title}
+                </IconTextStyled>
+            ) : null}
             <IconImagesWrapperStyled>
                 <IconImageStyled src={src} alt={`${title} icon`} />
                 <IconShadowImageStyled src={iconShadow} alt="icon shadow" />
             </IconImagesWrapperStyled>
-            {verbose ? (
-                <IconTextStyled
-                    $position={$position}
-                    $alignment={$alignment}
-                    $labelOrange={$labelOrange}
-                >
-                    {title}
-                </IconTextStyled>
-            ) : null}
         </IconContainerStyled>
     );
 };

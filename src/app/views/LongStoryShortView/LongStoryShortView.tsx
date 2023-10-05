@@ -51,30 +51,24 @@ export const LongStoryShortView: React.FC = () => {
                     <Icon
                         title="Excel"
                         src={excelIcon}
-                        $position="top"
-                        $alignment="center"
                         $style={{
                             position: 'absolute',
-                            top: '5%',
-                            left: '30%',
+                            top: '-5%',
+                            left: '25%',
                         }}
                     />
                     <Icon
                         title="Access"
                         src={accessIcon}
-                        $position="left"
-                        $alignment="center"
                         $style={{
                             position: 'absolute',
-                            top: '40%',
-                            right: '15%',
+                            top: '15%',
+                            right: '20%',
                         }}
                     />
                     <Icon
                         title="Power Point"
                         src={ppIcon}
-                        $position="left"
-                        $alignment="center"
                         $style={{
                             position: 'absolute',
                             bottom: '0',
@@ -86,8 +80,6 @@ export const LongStoryShortView: React.FC = () => {
                     <Icon
                         title="Numpy"
                         src={numpyIcon}
-                        $position="top"
-                        $alignment="center"
                         $style={{
                             position: 'absolute',
                             top: '5%',
@@ -97,31 +89,25 @@ export const LongStoryShortView: React.FC = () => {
                     <Icon
                         title="PostgreSQL"
                         src={postgresqlIcon}
-                        $position="top"
-                        $alignment="center"
                         $style={{
                             position: 'absolute',
-                            top: '12%',
-                            left: '21%',
+                            top: '10%',
+                            left: '28%',
                         }}
                     />
                     <Icon
                         title="Python"
                         src={pythonIcon}
-                        $position="top"
-                        $alignment="center"
                         $style={{
                             position: 'absolute',
-                            top: '35%',
-                            left: '10%',
+                            top: '40%',
+                            left: '15%',
                         }}
                     />
                     <Icon
                         title="Jupyter"
                         src={jupyterIcon}
                         verbose={false}
-                        $position="right"
-                        $alignment="center"
                         $style={{
                             position: 'absolute',
                             top: '50%',
@@ -131,12 +117,10 @@ export const LongStoryShortView: React.FC = () => {
                     <Icon
                         title="Pandas"
                         src={pandasIcon}
-                        $position="left"
-                        $alignment="center"
                         $style={{
                             position: 'absolute',
-                            top: '65%',
-                            left: '28%',
+                            top: '54%',
+                            left: '38%',
                         }}
                     />
                 </DataScientistSectionStyled>
@@ -144,86 +128,72 @@ export const LongStoryShortView: React.FC = () => {
                     <Icon
                         title="JavaScript"
                         src={jsIcon}
-                        $position="left"
-                        $alignment="center"
                         $labelOrange
                         $style={{
                             position: 'absolute',
-                            top: '5%',
-                            left: '10%',
+                            top: '-5%',
+                            left: '30%',
                         }}
                     />
                     <Icon
                         title="TypeScript"
                         src={tsIcon}
-                        $position="right"
-                        $alignment="center"
                         $labelOrange
                         $style={{
                             position: 'absolute',
-                            top: '10%',
-                            right: '10%',
+                            top: '5%',
+                            right: '30%',
                         }}
                     />
                     <Icon
                         title="React"
                         src={reactIcon}
-                        $position="right"
-                        $alignment="center"
                         $labelOrange
                         $style={{
                             position: 'absolute',
-                            top: '30%',
-                            left: '10%',
+                            top: '20%',
+                            left: '13%',
                         }}
                     />
                     <Icon
                         title="Django"
                         src={djangoIcon}
-                        $position="left"
-                        $alignment="center"
                         $labelOrange
                         $style={{
                             position: 'absolute',
-                            top: '35%',
-                            right: '10%',
+                            top: '25%',
+                            right: '15%',
                         }}
                     />
                     <Icon
                         title="Jest"
                         src={jestIcon}
-                        $position="right"
-                        $alignment="center"
                         $labelOrange
                         $style={{
                             position: 'absolute',
-                            top: '55%',
+                            top: '50%',
                             left: '30%',
                         }}
                     />
                     <Icon
                         title="Nextjs"
                         src={nextIcon}
-                        $position="right"
-                        $alignment="center"
-                        $labelOrange
-                        verbose={false}
-                        $style={{
-                            position: 'absolute',
-                            top: '60%',
-                            left: '15%',
-                        }}
-                    />
-                    <Icon
-                        title="Nodejs"
-                        src={nodeIcon}
-                        $position="right"
-                        $alignment="center"
                         $labelOrange
                         verbose={false}
                         $style={{
                             position: 'absolute',
                             top: '55%',
+                            left: '10%',
+                        }}
+                    />
+                    <Icon
+                        title="Nodejs"
+                        src={nodeIcon}
+                        $labelOrange
+                        verbose={false}
+                        $style={{
+                            position: 'absolute',
+                            top: '50%',
                             right: '35%',
                         }}
                     />

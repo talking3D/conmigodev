@@ -4,16 +4,13 @@ import { theme, viewport } from '@styles/theme';
 import { CSSProperties } from 'react';
 
 export interface IconStyledProps {
-    $position?: 'left' | 'right' | 'top' | 'bottom';
-    $alignment?: 'left' | 'right' | 'center';
     $labelOrange?: boolean;
     $style?: CSSProperties;
 }
 
 export const IconContainerStyled = styled.div<IconStyledProps>`
     display: flex;
-    flex-direction: ${({ $position }) =>
-        $position === 'left' || $position === 'right' ? 'row' : 'column'};
+    flex-direction: column;
     column-gap: 0.5rem;
     align-items: center;
     max-width: max-content;
@@ -59,27 +56,21 @@ export const IconShadowImageStyled = styled(Image)`
 `;
 
 export const IconTextStyled = styled.div<IconStyledProps>`
-    order: ${({ $position }) =>
-        $position === 'top' || $position === 'left' ? -1 : 'initial'};
     font-weight: 500;
-    font-size: 0.75rem;
+    font-size: 0.5rem;
     color: ${({ $labelOrange }) =>
         $labelOrange ? `${theme.colors.orangeText}` : `${theme.colors.bluish}`};
     align-self: start;
-    margin-top: ${(props) =>
-        props.$position !== 'top' && props.$position !== 'bottom'
-            ? props.$alignment === 'center'
-                ? '19%'
-                : '0'
-            : '0'};
+    text-align: center;
+    width: 100%;
     ${viewport.media.xs} {
         font-weight: 600;
-        font-size: 1rem;
+        font-size: 0.75rem;
     }
     ${viewport.media.md} {
-        font-size: 1.5rem;
+        font-size: 1rem;
     }
     ${viewport.media.lg} {
-        font-size: 1.75rem;
+        font-size: 1.5rem;
     }
 `;
