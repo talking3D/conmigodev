@@ -39,7 +39,7 @@ export const LongStoryShortView: React.FC = () => {
             </StoryTitleStyled>
             <StoryMainContentWrapperStyled>
                 <TimeLineWrapperStyled>
-                    <TimeLine />
+                    <TimeLine tickersCount={43} />
                 </TimeLineWrapperStyled>
                 <StoryMainImageWrapperStyled>
                     <LongStoryShortSectionMainImageStyled

@@ -3,6 +3,8 @@ import { theme, viewport } from '@styles/theme';
 
 export type TimeLineStyledProps = {
     $labelOrange?: boolean;
+    $activeTicker?: boolean;
+    $activeSibling?: boolean;
 };
 
 export const TimeLineContentStyled = styled.div`
@@ -19,13 +21,42 @@ const addHexTransparency = (hex: string, alpha: number): string => {
     return `${hex}${hexAlpha}`;
 };
 
+// Sets the color and transparency of the timeline tickers based on props
+const setTimelineElementColor = (
+    orange?: boolean,
+    active?: boolean,
+    sibling?: boolean
+) => {
+    const color = orange ? theme.colors.orangeText : theme.colors.bluish;
+    const transparency = active ? 1 : sibling ? 0.6 : 0.3;
+    return addHexTransparency(color, transparency);
+};
+
 export const TimeLineTickerStyled = styled.div<TimeLineStyledProps>`
     width: 15px;
     height: 2px;
-    background-color: ${({ $labelOrange }) =>
-        $labelOrange
-            ? `${addHexTransparency(theme.colors.orangeText, 0.3)}`
-            : `${addHexTransparency(theme.colors.bluish, 0.3)}`};
+    transition:
+        transform 0.2s ease-in-out,
+        background-color 0.4s ease-in-out;
+    transform-origin: right;
+
+    background-color: ${(props) =>
+        setTimelineElementColor(
+            props.$labelOrange,
+            props.$activeTicker,
+            props.$activeSibling
+        )};
+
+    ${({ $activeTicker }) =>
+        $activeTicker ? { transform: 'scale(2)' } : null};
+
+    // If the ticker is active, scale it up
+    ${({ $activeSibling }) =>
+        $activeSibling
+            ? {
+                  transform: 'scale(1.5)',
+              }
+            : null}
     ${viewport.media.xs} {
         width: 20px;
         height: 3px;
@@ -36,15 +67,28 @@ export const TimeLineTickerStyled = styled.div<TimeLineStyledProps>`
     }
 `;
 
-export const TimeLineItemStyled = styled.span<TimeLineStyledProps>`
+export const TimeLineLabelStyled = styled.span<TimeLineStyledProps>`
     font-size: 0.875rem;
-    font-weight: 500;
-    color: ${({ $labelOrange }) =>
-        $labelOrange
-            ? `${addHexTransparency(theme.colors.orangeText, 0.3)}`
-            : `${addHexTransparency(theme.colors.bluish, 0.3)}`};
+    font-weight: 700;
+    transition:
+        transform 0.3s ease-in-out,
+        background-color 0.4s ease-in-out;
+    transform-origin: right;
+
+    color: ${(props) =>
+        setTimelineElementColor(
+            props.$labelOrange,
+            props.$activeTicker,
+            props.$activeSibling
+        )};
+
+    ${({ $activeSibling }) =>
+        $activeSibling ? { transform: 'scale(1.2)' } : null};
+    ${({ $activeTicker }) =>
+        $activeTicker ? { transform: 'scale(1.5)' } : null}
     text-align: left;
     padding-right: 0.125rem;
+
     ${viewport.media.xs} {
         font-size: 1rem;
         font-weight: 600;
