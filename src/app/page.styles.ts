@@ -50,3 +50,8 @@ export const AboutMeSectionStyled = styled.div`
     max-width: ${viewport.size.xxl};
     margin: 0 auto;
 `;
+
+export const ProjectsSectionStyled = styled.div`
+    margin: 0 auto;
+    max-width: ${viewport.size.xxl};
+`;

@@ -6,11 +6,12 @@ import {
     LogoWrapperStyled,
     AboutMeSectionStyled,
     LongStoryShortSectionStyled,
+    ProjectsSectionStyled,
 } from './page.styles';
 
 import { AuthorInfo } from '@/components';
 import { Navbar } from '@/components';
-import { AboutMeView, LongStoryShortView } from './views';
+import { AboutMeView, LongStoryShortView, ProjectsView } from './views';
 import logo from 'public/conmigo-logo.svg';
 
 export default function Home() {
@@ -40,6 +41,9 @@ export default function Home() {
             <LongStoryShortSectionStyled>
                 <LongStoryShortView />
             </LongStoryShortSectionStyled>
+            <ProjectsSectionStyled>
+                <ProjectsView />
+            </ProjectsSectionStyled>
         </>
     );
 }

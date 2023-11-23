@@ -14,7 +14,7 @@ export interface TypographyProps {
     style?: CSSProperties;
     color?: Color;
     size?: number;
-    weight?: string;
+    weight?: Weight;
 }
 
 const getFontFamily = (family: Family) => {
@@ -28,7 +28,7 @@ const getFontFamily = (family: Family) => {
     }
 };
 
-const getFontWeight = (weight: string) => {
+const getFontWeight = (weight: Weight) => {
     switch (weight) {
         case 'regular':
             return '400';
@@ -43,6 +43,8 @@ const getFontWeight = (weight: string) => {
     }
 };
 
+export const pxToRem = (px: number) => `${px / 16}rem`;
+
 export const TypographyStyled = styled.span<TypographyProps>`
     color: ${(props) =>
         props.color && props.color === 'blue'
@@ -50,7 +52,7 @@ export const TypographyStyled = styled.span<TypographyProps>`
             : theme.colors.black};
     font-family: ${(props) =>
         props.family ? getFontFamily(props.family) : openSans.style.fontFamily};
-    font-size: ${(props) => (props.size ? `${props.size}px` : '16px')};
+    font-size: ${(props) => (props.size ? pxToRem(props.size) : '1rem')};
     font-weight: ${(props) =>
         props.weight ? getFontWeight(props.weight) : '400'};
 `;
