@@ -8,12 +8,14 @@ import {
     PaxiflyProjectContainerStyled,
     ProjectTitleStyled,
     ProjectDescriptionStyled,
-    ProjectImageStyled,
+    ProjectImageMobileStyled,
+    ProjectImageDesktopStyled,
     ButtonContainerStyled,
 } from './ProjectsView.styles';
 
 import { SectionTitle, Typography, Button } from '@/components';
-import paxiflyProjectImage from 'public/project-paxifly-thumb-small.jpg';
+import paxiflyProjectImageMobile from 'public/project-paxifly-thumb-small.jpg';
+import paxiflyProjectImageDesktop from 'public/project-paxifly-thumb-long.jpg';
 import { viewport } from '@/styles/theme';
 
 export const ProjectsView: React.FC = () => {
@@ -41,8 +43,17 @@ export const ProjectsView: React.FC = () => {
                         specifically on business jet.
                     </Typography>
                 </ProjectDescriptionStyled>
-                <ProjectImageStyled
-                    src={paxiflyProjectImage}
+                <ProjectImageMobileStyled
+                    src={paxiflyProjectImageMobile}
+                    alt="Paxifly project image"
+                    style={{
+                        width: '100%',
+                        height: 'auto',
+                        maxWidth: `${viewport.size.lg}`,
+                    }}
+                />
+                <ProjectImageDesktopStyled
+                    src={paxiflyProjectImageDesktop}
                     alt="Paxifly project image"
                     style={{
                         width: '100%',

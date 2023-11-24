@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { theme } from '@styles/theme';
+import { theme, viewport } from '@styles/theme';
 import { inter } from '@/styles/fonts';
 
 interface ButtonStyledProps {
@@ -17,4 +17,7 @@ export const ButtonStyled = styled.div<ButtonStyledProps>`
             : `${theme.colors.bluish}`};
     font-family: ${inter.style.fontFamily};
     font-weight: 700;
+    ${viewport.media.md} {
+        font-size: 2rem;
+    }
 `;

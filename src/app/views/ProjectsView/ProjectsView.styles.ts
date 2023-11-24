@@ -55,15 +55,32 @@ export const ProjectTitleStyled = styled.h3`
     font-size: 1.75rem;
     font-weight: 700;
     margin: 1.75rem auto 0;
+    ${viewport.media.md} {
+        font-size: 2rem;
+    }
 `;
 
 export const ProjectDescriptionStyled = styled.div`
     margin-left: 1rem;
     margin-right: 1rem;
+    ${viewport.media.md} {
+        margin-left: 2rem;
+        margin-right: 2rem;
+    }
 `;
 
-export const ProjectImageStyled = styled(Image)`
+export const ProjectImageMobileStyled = styled(Image)`
     width: 100%;
+    ${viewport.media.lg} {
+        display: none;
+    }
+`;
+export const ProjectImageDesktopStyled = styled(Image)`
+    width: 100%;
+    display: none;
+    ${viewport.media.lg} {
+        display: block;
+    }
 `;
 
 export const ButtonContainerStyled = styled.div`
@@ -74,4 +91,10 @@ export const ButtonContainerStyled = styled.div`
     height: auto;
     width: 100%;
     padding: 2.25rem 0;
+    ${viewport.media.md} {
+        padding: 4rem 0;
+    }
+    ${viewport.media.lg} {
+        display: none;
+    }
 `;
