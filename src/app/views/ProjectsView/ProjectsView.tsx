@@ -6,11 +6,13 @@ import {
     ProjectsViewContainerStyled,
     ProjectSectionTitleStyled,
     PaxiflyProjectContainerStyled,
+    PaxiflyProjectDescriptionContainerStyled,
     ProjectTitleStyled,
     ProjectDescriptionStyled,
     ProjectImageMobileStyled,
     ProjectImageDesktopStyled,
-    ButtonContainerStyled,
+    ButtonContainerMobileStyled,
+    ButtonContainerDesktopStyled,
 } from './ProjectsView.styles';
 
 import { SectionTitle, Typography, Button } from '@/components';
@@ -28,21 +30,26 @@ export const ProjectsView: React.FC = () => {
                 />
             </ProjectSectionTitleStyled>
             <PaxiflyProjectContainerStyled>
-                <ProjectTitleStyled>Paxifly</ProjectTitleStyled>
-                <ProjectDescriptionStyled>
-                    <Typography
-                        as="p"
-                        $size={{ sm: 18, md: 24 }}
-                        $lineHeight={{ sm: 32, md: 36 }}
-                    >
-                        Paxifly is a groundbreaking online platform poised to
-                        revolutionize the landscape of private air travel for
-                        both individuals and businesses. It stands as a
-                        comprehensive marketplace, offering a dynamic
-                        environment for matching, buying, and selling flights
-                        specifically on business jet.
-                    </Typography>
-                </ProjectDescriptionStyled>
+                <PaxiflyProjectDescriptionContainerStyled>
+                    <ProjectTitleStyled>Paxifly</ProjectTitleStyled>
+                    <ProjectDescriptionStyled>
+                        <Typography
+                            as="p"
+                            $size={{ sm: 24 }}
+                            $lineHeight={{ sm: 40 }}
+                        >
+                            Paxifly is a groundbreaking online platform poised
+                            to revolutionize the landscape of private air travel
+                            for both individuals and businesses. It stands as a
+                            comprehensive marketplace, offering a dynamic
+                            environment for matching, buying, and selling
+                            flights specifically on business jet.
+                        </Typography>
+                    </ProjectDescriptionStyled>
+                    <ButtonContainerDesktopStyled>
+                        <Button>Read case study</Button>
+                    </ButtonContainerDesktopStyled>
+                </PaxiflyProjectDescriptionContainerStyled>
                 <ProjectImageMobileStyled
                     src={paxiflyProjectImageMobile}
                     alt="Paxifly project image"
@@ -58,12 +65,13 @@ export const ProjectsView: React.FC = () => {
                     style={{
                         width: '100%',
                         height: 'auto',
-                        maxWidth: `${viewport.size.lg}`,
+                        objectFit: 'cover',
+                        // maxWidth: `${viewport.size.lg}`,
                     }}
                 />
-                <ButtonContainerStyled>
-                    <Button />
-                </ButtonContainerStyled>
+                <ButtonContainerMobileStyled>
+                    <Button>Read case study</Button>
+                </ButtonContainerMobileStyled>
             </PaxiflyProjectContainerStyled>
         </ProjectsViewContainerStyled>
     );
