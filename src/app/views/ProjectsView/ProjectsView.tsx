@@ -28,7 +28,11 @@ export const ProjectsView: React.FC = () => {
             <PaxiflyProjectContainerStyled>
                 <ProjectTitleStyled>Paxifly</ProjectTitleStyled>
                 <ProjectDescriptionStyled>
-                    <Typography as="p" size={18}>
+                    <Typography
+                        as="p"
+                        $size={{ sm: 18, md: 24 }}
+                        $lineHeight={{ sm: 32, md: 36 }}
+                    >
                         Paxifly is a groundbreaking online platform poised to
                         revolutionize the landscape of private air travel for
                         both individuals and businesses. It stands as a

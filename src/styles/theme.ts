@@ -12,7 +12,7 @@ export const theme: DefaultTheme = {
     },
 };
 
-type VieportSize = {
+export type VieportSize = {
     xs: number;
     xr: number;
     sm: number;
