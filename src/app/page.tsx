@@ -7,11 +7,17 @@ import {
     AboutMeSectionStyled,
     LongStoryShortSectionStyled,
     ProjectsSectionStyled,
+    ContactFormSectionStyled,
 } from './page.styles';
 
 import { AuthorInfo } from '@/components';
 import { Navbar } from '@/components';
-import { AboutMeView, LongStoryShortView, ProjectsView } from './views';
+import {
+    AboutMeView,
+    LongStoryShortView,
+    ProjectsView,
+    ContactFormView,
+} from './views';
 import logo from 'public/conmigo-logo.svg';
 
 export default function Home() {
@@ -44,6 +50,9 @@ export default function Home() {
             <ProjectsSectionStyled>
                 <ProjectsView />
             </ProjectsSectionStyled>
+            <ContactFormSectionStyled>
+                <ContactFormView />
+            </ContactFormSectionStyled>
         </>
     );
 }

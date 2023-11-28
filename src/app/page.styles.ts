@@ -55,3 +55,8 @@ export const ProjectsSectionStyled = styled.div`
     margin: 0 auto;
     max-width: ${viewport.size.xxl};
 `;
+
+export const ContactFormSectionStyled = styled.div`
+    margin: 0 auto;
+    max-width: ${viewport.size.xxl};
+`;
