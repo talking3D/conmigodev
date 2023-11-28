@@ -56,7 +56,45 @@ export const FormRowStyled = styled.div`
     row-gap: 0.5rem;
 `;
 export const NameFieldStyled = styled(Field)`
-    height: 2rem;
+    border-top: none;
+    border-right: none;
+    border-bottom: 1px solid ${theme.colors.bluish};
+    border-left: none;
+    padding: 0.625rem 0.5rem;
+    font-family: ${openSans.style.fontFamily};
+    font-size: 1rem;
+    height: 2.725rem;
+    ${viewport.media.md} {
+        font-size: 1.25rem;
+        height: 3.125rem;
+        padding: 0.75rem 1rem;
+    }
+    &:focus {
+        outline: none;
+        border-bottom: 2px solid ${theme.colors.bluish};
+        transition: all 0.2s ease-in-out;
+        background: linear-gradient(
+            180deg,
+            rgba(217, 230, 255, 0) 0%,
+            rgba(217, 230, 255, 0.3) 100%
+        );
+    }
+    ${(props) =>
+        props.value.length !== 0 &&
+        `background: linear-gradient(
+          180deg,
+          rgba(217, 230, 255, 0) 0%,
+          rgba(217, 230, 255, 0.3) 100%
+          );
+          height: 2.725rem;
+          font-size: 1rem;
+          ${viewport.media.md} {
+            font-size: 1.25rem;
+            height: 3.125rem;
+            padding: 0.75rem 1rem;
+          `}
+`;
+export const EmailFieldStyled = styled(Field)`
     border-top: none;
     border-right: none;
     border-bottom: 1px solid ${theme.colors.bluish};
@@ -75,31 +113,27 @@ export const NameFieldStyled = styled(Field)`
             rgba(217, 230, 255, 0.3) 100%
         );
     }
-`;
-export const EmailFieldStyled = styled(Field)`
-    height: 2rem;
-    border-top: none;
-    border-right: none;
-    border-bottom: 1px solid ${theme.colors.bluish};
-    border-left: none;
-    padding: 0.625rem 0.5rem;
-    font-family: ${openSans.style.fontFamily};
-    font-size: 1rem;
-    height: 2.725rem;
-    &:focus {
-        outline: none;
-        border-bottom: 2px solid ${theme.colors.bluish};
-        transition: all 0.2s ease-in-out;
-        background: linear-gradient(
-            180deg,
-            rgba(217, 230, 255, 0) 0%,
-            rgba(217, 230, 255, 0.3) 100%
-        );
+    ${(props) =>
+        props.value.length !== 0 &&
+        `background: linear-gradient(
+          180deg,
+          rgba(217, 230, 255, 0) 0%,
+          rgba(217, 230, 255, 0.3) 100%
+          );
+          height: 2.725rem;
+          font-size: 1rem;
+          ${viewport.media.md} {
+            font-size: 1.25rem;
+            height: 3.125rem;
+            padding: 0.75rem 1rem;
+          `}
+    ${viewport.media.md} {
+        padding: 0.75rem 1rem;
     }
 `;
 export const MessageFieldStyled = styled(Field)`
     resize: none;
-    height: 2rem;
+    height: 2.725rem;
     border-top: none;
     border-right: none;
     border-bottom: 1px solid ${theme.colors.bluish};
@@ -118,6 +152,11 @@ export const MessageFieldStyled = styled(Field)`
             rgba(217, 230, 255, 0) 0%,
             rgba(217, 230, 255, 0.3) 100%
         );
+        ${viewport.media.md} {
+            font-size: 1.25rem;
+            height: 10rem;
+            padding: 0.75rem 1rem;
+        }
     }
     ${(props) =>
         props.value.length !== 0 &&
@@ -126,26 +165,40 @@ export const MessageFieldStyled = styled(Field)`
           rgba(217, 230, 255, 0) 0%,
           rgba(217, 230, 255, 0.3) 100%
           );
-          height: 11rem;
+          height: 10rem;
+          ${viewport.media.md} {
+            font-size: 1.25rem;
+            height: 10rem;
+            padding: 0.75rem 1rem;
           `}
 `;
 export const FormLabelStyled = styled.label<FormFieldProps>`
     font-size: 1.125rem;
     font-weight: 600;
-    margin-bottom: -2rem;
+    margin-bottom: -2.5rem;
     transition: all 0.2s ease-in-out;
+    ${viewport.media.md} {
+        font-size: 1.725rem;
+    }
     ${(props) =>
         !props.$isEmpty
             ? `
           font-size: 0.875rem;
           margin-bottom: 0rem;
           color: #767676;
+          ${viewport.media.md} {
+            font-size: 1.125rem;
+        }
       `
             : null}
     ${FormRowStyled}:focus-within & {
         font-size: 0.875rem;
         margin-bottom: 0rem;
         color: #767676;
+        ${viewport.media.md} {
+            font-size: 1.125rem;
+        }
     }
+
     z-index: 1;
 `;
