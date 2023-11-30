@@ -1,10 +1,12 @@
 import { theme, viewport } from '@/styles/theme';
-import { openSans } from '@/styles/fonts';
+import { openSans, inter } from '@/styles/fonts';
 import styled from 'styled-components';
 import { Form, Field } from 'formik';
 
 export interface FormFieldProps {
-    $isEmpty: boolean;
+    $isEmpty?: boolean;
+    $isError?: boolean;
+    value?: string;
 }
 
 export const FormContainerStyled = styled.div`
@@ -181,7 +183,7 @@ export const FormLabelStyled = styled.label<FormFieldProps>`
         font-size: 1.725rem;
     }
     ${(props) =>
-        !props.$isEmpty
+        !props.$isEmpty || props.$isError
             ? `
           font-size: 0.875rem;
           margin-bottom: 0rem;

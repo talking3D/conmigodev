@@ -12,6 +12,9 @@ import {
     EmailFieldStyled,
     MessageFieldStyled,
     FormLabelStyled,
+    FormSubmitButtonStyled,
+    FormErrorStyled,
+    FormFieldStyled,
 } from './ContactFormView.styles';
 
 import { SectionTitle } from '@/components';
@@ -63,56 +66,98 @@ export const ContactFormView: React.FC = () => {
             </ContactFormTitleStyled>
             <Formik
                 initialValues={initialValues}
-                onSubmit={(values, actions) => {
-                    console.log(values);
-                }}
                 validationSchema={validationSchema}
+                onSubmit={(values, actions) => {
+                    setTimeout(() => {
+                        actions.setSubmitting(false);
+                    }, 500);
+                }}
             >
-                {(props) => (
-                    <FormStyled onSubmit={props.handleSubmit}>
-                        <FormRowStyled onClick={handleFieldClick}>
-                            <FormLabelStyled
-                                htmlFor="name"
-                                $isEmpty={formValues.name.length === 0}
-                            >
-                                Name
-                            </FormLabelStyled>
-                            <NameFieldStyled
-                                name="name"
-                                type="text"
-                                onChange={setFieldValue}
-                                value={formValues.name}
-                            />
-                        </FormRowStyled>
-                        <FormRowStyled onClick={handleFieldClick}>
-                            <FormLabelStyled
-                                $isEmpty={formValues.email.length === 0}
-                                htmlFor="email"
-                            >
-                                Email
-                            </FormLabelStyled>
-                            <EmailFieldStyled
-                                name="email"
-                                type="email"
-                                onChange={setFieldValue}
-                                value={formValues.email}
-                            />
-                        </FormRowStyled>
-                        <FormRowStyled onClick={handleFieldClick}>
-                            <FormLabelStyled
-                                htmlFor="message"
-                                $isEmpty={formValues.message.length === 0}
-                            >
-                                Message
-                            </FormLabelStyled>
-                            <MessageFieldStyled
-                                name="message"
-                                as={'textarea'}
-                                onChange={setFieldValue}
-                                value={formValues.message}
-                                maxLength={512}
-                            />
-                        </FormRowStyled>
+                {({
+                    handleSubmit,
+                    isSubmitting,
+                    dirty,
+                    isValid,
+                }: FormikProps<any>) => (
+                    <FormStyled onSubmit={handleSubmit}>
+                        <Field name="name">
+                            {({ field, meta }: FormFieldProps) => (
+                                <FormRowStyled onClick={handleFieldClick}>
+                                    <FormLabelStyled
+                                        htmlFor="name"
+                                        $isEmpty={field.value.length === 0}
+                                        $isError={!!meta.error && meta.touched}
+                                    >
+                                        Name
+                                    </FormLabelStyled>
+                                    <FormFieldStyled
+                                        type="text"
+                                        $isError={!!meta.error && meta.touched}
+                                        {...field}
+                                    />
+                                    {meta.touched && meta.error ? (
+                                        <FormErrorStyled>
+                                            {meta.error}
+                                        </FormErrorStyled>
+                                    ) : null}
+                                </FormRowStyled>
+                            )}
+                        </Field>
+                        <Field name="email">
+                            {({ field, meta }: FormFieldProps) => (
+                                <FormRowStyled onClick={handleFieldClick}>
+                                    <FormLabelStyled
+                                        htmlFor="email"
+                                        $isEmpty={field.value.length === 0}
+                                        $isError={!!meta.error && meta.touched}
+                                    >
+                                        Email
+                                    </FormLabelStyled>
+                                    <FormFieldStyled
+                                        name="email"
+                                        type="email"
+                                        $isError={!!meta.error && meta.touched}
+                                        {...field}
+                                    />
+                                    {meta.error && meta.touched ? (
+                                        <FormErrorStyled>
+                                            {meta.error}
+                                        </FormErrorStyled>
+                                    ) : null}
+                                </FormRowStyled>
+                            )}
+                        </Field>
+                        <Field name="message">
+                            {({ field, meta }: FormFieldProps) => (
+                                <FormRowStyled onClick={handleFieldClick}>
+                                    <FormLabelStyled
+                                        htmlFor="message"
+                                        $isEmpty={field.value.length === 0}
+                                        $isError={!!meta.error && meta.touched}
+                                    >
+                                        Message
+                                    </FormLabelStyled>
+                                    <MessageFieldStyled
+                                        name="message"
+                                        as={'textarea'}
+                                        $isError={!!meta.error && meta.touched}
+                                        {...field}
+                                        maxLength={512}
+                                    />
+                                    {meta.error && meta.touched ? (
+                                        <FormErrorStyled>
+                                            {meta.error}
+                                        </FormErrorStyled>
+                                    ) : null}
+                                </FormRowStyled>
+                            )}
+                        </Field>
+                        <FormSubmitButtonStyled
+                            type="submit"
+                            disabled={isSubmitting || (dirty && !isValid)}
+                        >
+                            Send
+                        </FormSubmitButtonStyled>
                     </FormStyled>
                 )}
             </Formik>
