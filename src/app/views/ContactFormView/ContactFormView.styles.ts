@@ -1,13 +1,18 @@
 import { theme, viewport } from '@/styles/theme';
 import { openSans, inter } from '@/styles/fonts';
 import styled from 'styled-components';
-import { Form, Field } from 'formik';
+import { Form } from 'formik';
 
 export interface FormFieldProps {
     $isEmpty?: boolean;
     $isError?: boolean;
     value?: string;
 }
+
+const errorBackgoundImage =
+    'linear-gradient(180deg, rgba(255, 168, 0, 0) 0%, rgba(255, 168, 0, 0.2) 100%)';
+const validBackgoundImage =
+    'linear-gradient(180deg, rgba(217, 230, 255, 0) 0%, rgba(217, 230, 255, 0.3) 100%)';
 
 export const FormContainerStyled = styled.div`
     display: flex;
@@ -57,121 +62,82 @@ export const FormRowStyled = styled.div`
     flex-direction: column;
     row-gap: 0.5rem;
 `;
-export const NameFieldStyled = styled(Field)`
+
+export const FormFieldStyled = styled.input<FormFieldProps>`
     border-top: none;
     border-right: none;
-    border-bottom: 1px solid ${theme.colors.bluish};
     border-left: none;
+    border-bottom-style: solid;
+    border-bottom-width: 1px;
+    border-bottom-color: ${(props) =>
+        props.$isError
+            ? `${theme.colors.orangeText}`
+            : `${theme.colors.bluish}`};
     padding: 0.625rem 0.5rem;
     font-family: ${openSans.style.fontFamily};
     font-size: 1rem;
+    transition: all 0.2s ease-in-out;
     height: 2.725rem;
+    &:focus {
+        outline: none;
+        border-bottom-width: 2px;
+        transition: all 0.2s ease-in-out;
+        background-image: ${(props) =>
+            props.$isError
+                ? `${errorBackgoundImage}`
+                : `${validBackgoundImage}`};
+    }
     ${viewport.media.md} {
         font-size: 1.25rem;
         height: 3.125rem;
         padding: 0.75rem 1rem;
     }
-    &:focus {
-        outline: none;
-        border-bottom: 2px solid ${theme.colors.bluish};
-        transition: all 0.2s ease-in-out;
-        background: linear-gradient(
-            180deg,
-            rgba(217, 230, 255, 0) 0%,
-            rgba(217, 230, 255, 0.3) 100%
-        );
-    }
     ${(props) =>
+        props.value &&
         props.value.length !== 0 &&
-        `background: linear-gradient(
-          180deg,
-          rgba(217, 230, 255, 0) 0%,
-          rgba(217, 230, 255, 0.3) 100%
-          );
-          height: 2.725rem;
-          font-size: 1rem;
+        `background: ${validBackgoundImage};
+          padding: 0.75rem 1rem;
+          `}
+    ${(props) => props.$isError && `background-image: ${errorBackgoundImage};}`}
+`;
+
+export const NameFieldStyled = styled(FormFieldStyled)`
+    ${(props) =>
+        props.value &&
+        props.value.length !== 0 &&
+        `
           ${viewport.media.md} {
-            font-size: 1.25rem;
             height: 3.125rem;
-            padding: 0.75rem 1rem;
           `}
 `;
-export const EmailFieldStyled = styled(Field)`
-    border-top: none;
-    border-right: none;
-    border-bottom: 1px solid ${theme.colors.bluish};
-    border-left: none;
-    padding: 0.625rem 0.5rem;
-    font-family: ${openSans.style.fontFamily};
-    font-size: 1rem;
-    height: 2.725rem;
-    &:focus {
-        outline: none;
-        border-bottom: 2px solid ${theme.colors.bluish};
-        transition: all 0.2s ease-in-out;
-        background: linear-gradient(
-            180deg,
-            rgba(217, 230, 255, 0) 0%,
-            rgba(217, 230, 255, 0.3) 100%
-        );
-    }
+export const EmailFieldStyled = styled(FormFieldStyled)`
     ${(props) =>
+        props.value &&
         props.value.length !== 0 &&
-        `background: linear-gradient(
-          180deg,
-          rgba(217, 230, 255, 0) 0%,
-          rgba(217, 230, 255, 0.3) 100%
-          );
-          height: 2.725rem;
-          font-size: 1rem;
+        `
           ${viewport.media.md} {
-            font-size: 1.25rem;
             height: 3.125rem;
-            padding: 0.75rem 1rem;
           `}
-    ${viewport.media.md} {
-        padding: 0.75rem 1rem;
-    }
 `;
-export const MessageFieldStyled = styled(Field)`
+export const MessageFieldStyled = styled(FormFieldStyled)`
     resize: none;
-    height: 2.725rem;
-    border-top: none;
-    border-right: none;
-    border-bottom: 1px solid ${theme.colors.bluish};
-    border-left: none;
-    overflow-wrap: break-word;
-    padding: 0.625rem 0.5rem;
-    font-family: ${openSans.style.fontFamily};
-    font-size: 1rem;
+    transition: all 0.3s ease-in-out;
+    padding-top: 0.5rem;
     &:focus {
-        outline: none;
-        border-bottom: 2px solid ${theme.colors.bluish};
-        transition: all 0.3s ease-in-out;
         height: 11rem;
-        background: linear-gradient(
-            180deg,
-            rgba(217, 230, 255, 0) 0%,
-            rgba(217, 230, 255, 0.3) 100%
-        );
+        padding: 0.625rem 0.5rem;
         ${viewport.media.md} {
-            font-size: 1.25rem;
             height: 10rem;
-            padding: 0.75rem 1rem;
         }
     }
     ${(props) =>
+        props.value &&
         props.value.length !== 0 &&
-        `background: linear-gradient(
-          180deg,
-          rgba(217, 230, 255, 0) 0%,
-          rgba(217, 230, 255, 0.3) 100%
-          );
+        `
           height: 10rem;
+          padding: 0.625rem 0.5rem;
           ${viewport.media.md} {
-            font-size: 1.25rem;
             height: 10rem;
-            padding: 0.75rem 1rem;
           `}
 `;
 export const FormLabelStyled = styled.label<FormFieldProps>`
@@ -203,4 +169,78 @@ export const FormLabelStyled = styled.label<FormFieldProps>`
     }
 
     z-index: 1;
+`;
+
+export const FormErrorStyled = styled.div`
+    font-family: ${inter.style.fontFamily};
+    font-weight: 400;
+    font-size: 0.75rem;
+    color: ${theme.colors.orangeText};
+    ${viewport.media.md} {
+        font-size: 0.875rem;
+    }
+    ${viewport.media.lg} {
+        font-size: 1.25rem;
+    }
+`;
+
+export const FormSubmitButtonStyled = styled.button`
+    display: inline-block;
+    position: relative;
+    border-radius: 50px;
+    padding: 1.25rem 4rem;
+    color: ${theme.colors.white};
+    font-size: 1.25rem;
+    font-family: ${inter.style.fontFamily};
+    font-weight: 700;
+    border: none;
+    margin-left: auto;
+    margin-right: auto;
+    width: 70%;
+    ${viewport.media.xr} {
+        max-width: 60%;
+    }
+    ${viewport.media.md} {
+        font-size: 2rem;
+        padding: 1.25rem 6rem;
+        margin-top: 2rem;
+        max-width: 50%;
+    }
+    ${viewport.media.lg} {
+        max-width: 40%;
+        margin-top: 3rem;
+    }
+
+    overflow: hidden;
+    z-index: 1;
+
+    &:before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 0%;
+        height: 100%;
+        border-radius: 50px;
+        background-color: ${theme.colors.orangeText};
+        z-index: -1;
+        transition: all 0.3s ease-in-out;
+    }
+    &:after {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        height: 100%;
+        width: 100%;
+        border-radius: 50px;
+        color: ${theme.colors.white};
+        background-color: ${theme.colors.bluish};
+        z-index: -2;
+        transition: all 0.3s ease-in-out;
+    }
+    &:hover:before {
+        width: 100%;
+        height: 100%;
+    }
 `;

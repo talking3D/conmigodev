@@ -1,6 +1,6 @@
 'use client';
-import React, { useState } from 'react';
-import { Formik } from 'formik';
+import React from 'react';
+import { Formik, Field, FormikProps } from 'formik';
 import * as Yup from 'yup';
 
 import {
@@ -8,8 +8,6 @@ import {
     ContactFormTitleStyled,
     FormStyled,
     FormRowStyled,
-    NameFieldStyled,
-    EmailFieldStyled,
     MessageFieldStyled,
     FormLabelStyled,
     FormSubmitButtonStyled,
@@ -25,16 +23,28 @@ interface FormValues {
     message: string;
 }
 
+interface FormFieldProps {
+    field: {
+        value: string;
+    };
+    meta: {
+        error: string;
+        touched: boolean;
+    };
+}
+
 export const ContactFormView: React.FC = () => {
     const initialValues: FormValues = {
         name: '',
         email: '',
         message: '',
     };
-    const validationSchema = Yup.object({
+    const validationSchema = Yup.object().shape({
         name: Yup.string().required('Required'),
         email: Yup.string().email('Invalid email address').required('Required'),
-        message: Yup.string().required('Required'),
+        message: Yup.string()
+            .required('Required')
+            .max(512, 'Your message is a bit too long'),
     });
 
     const handleFieldClick = (e: React.MouseEvent) => {
@@ -45,14 +55,6 @@ export const ContactFormView: React.FC = () => {
         } else if (target.tagName === 'INPUT') {
             target.focus();
         }
-    };
-    const [formValues, setFormValues] = useState<FormValues>(initialValues);
-
-    const setFieldValue = (e: React.ChangeEvent<HTMLInputElement>) => {
-        setFormValues((state) => ({
-            ...state,
-            [e.target.name]: e.target.value,
-        }));
     };
 
     return (
