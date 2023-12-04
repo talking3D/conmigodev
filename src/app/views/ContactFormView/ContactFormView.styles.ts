@@ -213,7 +213,9 @@ export const FormSubmitButtonStyled = styled.button`
 
     overflow: hidden;
     z-index: 1;
-
+    ${(props) =>
+        !props.disabled
+            ? `
     &:before {
         content: '';
         position: absolute;
@@ -243,4 +245,6 @@ export const FormSubmitButtonStyled = styled.button`
         width: 100%;
         height: 100%;
     }
+    `
+            : null}
 `;

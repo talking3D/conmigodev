@@ -70,9 +70,24 @@ export const ContactFormView: React.FC = () => {
                 initialValues={initialValues}
                 validationSchema={validationSchema}
                 onSubmit={(values, actions) => {
-                    setTimeout(() => {
-                        actions.setSubmitting(false);
-                    }, 500);
+                    actions.setSubmitting(true);
+                    const response = fetch('/api/contact', {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json',
+                            Accept: 'application/json',
+                        },
+                        body: JSON.stringify(values),
+                    });
+                    response
+                        .then((res) => res.json())
+                        .then((res) => {
+                            if (res.status === 200) {
+                                actions.resetForm();
+                                actions.setSubmitting(false);
+                            }
+                        })
+                        .catch((err) => err.json());
                 }}
             >
                 {({
@@ -156,7 +171,7 @@ export const ContactFormView: React.FC = () => {
                         </Field>
                         <FormSubmitButtonStyled
                             type="submit"
-                            disabled={isSubmitting || (dirty && !isValid)}
+                            disabled={isSubmitting || !dirty || !isValid}
                         >
                             Send
                         </FormSubmitButtonStyled>
